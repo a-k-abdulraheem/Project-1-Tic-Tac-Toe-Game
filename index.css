@@ -1,0 +1,186 @@
+:root {
+  --dark-blue: rgb(15, 22, 48);
+  --light-blue: rgb(78, 173, 216);
+  --light-purple: rgb(71, 26, 187);
+  --white: white;
+  --light-grey: rgb(200, 204, 216);
+  --grey: rgb(135, 139, 151);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--dark-blue);
+  color: var(--white);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 70px;
+}
+
+.project-name {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  font-family: Arial, sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+  text-shadow: 2px 2px 5px var(--light-purple);
+}
+
+.player-details {
+  font-size: 25px;
+  text-align: center;
+}
+
+.player-turn {
+  color: var(--light-blue);
+  text-shadow: 0 0 7px var(--light-purple);
+  font-size: 30px;
+}
+
+.player-details.rotate-player2-view {
+  transform: rotate(180deg);
+  }
+
+.game-grid-container {
+  display: grid;
+  grid-template-columns: 60px 60px 60px;
+  grid-template-rows: 60px 60px 60px;
+  background-color: var(--light-purple);
+  gap: 10px;
+  border: 10px solid var(--light-purple);
+  border-radius: 20px;
+  overflow: hidden;
+  margin: 20px;
+}
+
+.move-button {
+  background-color: var(--dark-blue);
+  border: none;
+  color: var(--light-blue);
+  font-size: 50px;
+  transition: background-color 0.7s,
+    color 0.7s;
+}
+
+.move-button:hover {
+  opacity: 0.8;
+}
+
+.move-button:active {
+  opacity: 0.6;
+}
+
+.win-boxes {
+  background-color: var(--light-blue);
+  color: var(--dark-blue);
+}
+
+.replay-message {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  overflow: hidden;
+  background-color: rgba(15, 22, 48, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+}
+
+.js-display-replay-message {
+  width: 100%;
+}
+
+.replay-message .yes-button,
+.replay-message .no-button {
+  padding: 15px 20px;
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+@media only screen and (min-width : 700px) {
+  body {
+    flex-direction: row;
+  }
+
+  .game-grid-container {
+    grid-template-columns: 120px 120px 120px;
+    grid-template-rows: 120px 120px 120px;
+    border-radius: 20px;
+  }
+
+  .move-button {
+    font-size: 90px;
+  }
+
+  .player-details.rotate-player1-view {
+    transform: rotate(270deg);
+  }
+
+  .player-details.rotate-player2-view {
+    transform: rotate(90deg);
+  }
+}
+
+@media only screen and (min-width : 992px) {
+  .game-grid-container {
+    grid-template-columns: 150px 150px 150px;
+    grid-template-rows: 150px 150px 150px;
+    border-radius: 20px;
+  }
+
+  .move-button {
+    font-size: 100px;
+  }
+
+  .player-details {
+    font-size: 40px;
+  }
+
+  .player-details.rotate-player1-view,
+  .player-details.rotate-player2-view {
+    transform: initial;
+  }
+
+  .player-turn {
+    font-size: 45px;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .project-name {
+    font-size: 40px;
+  }
+
+  .game-grid-container {
+    grid-template-columns: 170px 170px 170px;
+    grid-template-rows: 170px 170px 170px;
+    border-radius: 20px;
+  }
+
+  .move-button {
+    font-size: 110px;
+  }
+
+  .player-details {
+    font-size: 50px;
+  }
+
+  .player-turn {
+    font-size: 55px;
+  }
+}
