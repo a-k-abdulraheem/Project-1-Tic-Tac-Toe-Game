@@ -31,9 +31,11 @@ let movesCounter = 0;
 
 let currentPLayer = player1;
 
+let hasAnyPlayerWon = false;
+
 boxesElement.forEach((buttonElement, index) => {
       buttonElement.addEventListener('click', ()=> {
-        if (buttonElement.innerHTML === '') {
+        if ((!hasAnyPlayerWon) && (buttonElement.innerHTML === '')) {
           buttonElement.innerHTML = `${currentPLayer.letter}`;
           addLetterToGameBoxArray(index, currentPLayer);
           movesCounter++;
@@ -130,6 +132,8 @@ function updatePlayerTurn(currentPLayer) {
 }
 
 function updateWinner(letter) {
+  hasAnyPlayerWon = true;
+
   if (letter === player1.letter) {
     player1.score++;
   }
@@ -163,6 +167,8 @@ function displayReplayMessage() {
         
         // reset moves counter
         movesCounter = 0;
+
+        hasAnyPlayerWon = false;
 
         replyMessageElement.classList.remove('js-display-replay-message');
 
